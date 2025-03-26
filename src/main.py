@@ -3,9 +3,9 @@ from constants import *
 from player import *
 from asteroid import *
 from asteroidfield import *
+from circleshape import CircleShape
 
-
-def main():
+def main() -> None:
     # init pygame
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -33,8 +33,15 @@ def main():
 
         updatable.update(delta_time)
         screen.fill("black")
+
         for obj in drawable:
             obj.draw(screen)
+
+        for obj in asteroid:
+            if obj.collides_with(player):
+                print('Game over!')
+                import sys
+                sys.exit()
 
         pygame.display.flip()
 
