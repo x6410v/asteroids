@@ -5,6 +5,8 @@ from constants import *
 def main():
     # init pygame
     pygame.init()
+    game_clock = pygame.time.Clock()
+    delta_time = 0
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
     # starting message
@@ -17,8 +19,14 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
+
         screen.fill(color=(0, 0, 0))
         pygame.display.flip()
+        dt = game_clock.tick(60) / 1000
+
+        
+
+
 
 
 
