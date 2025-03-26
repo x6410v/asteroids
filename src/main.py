@@ -16,11 +16,13 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
-
+            
+        delta_time = game_clock.tick(60) / 1000
         screen.fill("black")
         player.draw(screen)
+        player.update(delta_time)
         pygame.display.flip()
-        delta_time = game_clock.tick(60) / 1000
+
 
 
 
